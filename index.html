@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evaluación de Física: Principio de Arquímedes y Flotación</title>
+
+  <!-- Estilos CSS -->
+  <style>
+    body { font-family: sans-serif; max-width: 900px; margin: auto; padding: 20px; background: #f9f9f9; }
+    h1, h2 { text-align: center; }
+    .encabezado { text-align: center; margin-bottom: 20px; }
+    .pregunta { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    button { padding: 12px 25px; font-size: 1em; background: #007acc; color: white; border: none; border-radius: 8px; cursor: pointer; }
+    button:hover { background: #005e99; }
+    #resultado { font-weight: bold; color: green; margin-top: 20px; text-align: center; }
+    img.figure { max-width: 100%; height: auto; margin: 10px 0; }
+    textarea { width: 100%; min-height: 100px; resize: vertical; }
+    input[type="text"], textarea { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+  </style>
+
+  <!-- MathJax para renderizar ecuaciones en LaTeX -->
+  <script>
+    MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+</head>
+
+<body>
+  <div class="encabezado">
+    <img src="Encab_Taller_Physics_Rosales_backup.svg" alt="Encabezado Evaluación Física" style="width: 100%; max-width: 1200px; height: auto;">
+    <h1>Evaluación de Física: Principio de Arquímedes y Flotación</h1>
+    <p><strong>Autor:</strong> Hayzar Hernández Bustos – IED Los Rosales</p>
+    <p><strong>Fecha límite de entrega:</strong> 20 de mayo de 2025</p>
+  </div>
+
+  <div class="pregunta">
+    <p>Nombre completo:</p>
+    <input type="text" id="nombre" name="nombre" required>
+  </div>
+  <div class="pregunta">
+    <p>Grado:</p>
+    <input type="text" id="grado" name="grado" required>
+  </div>
+
+  <h2>Responda las siguientes preguntas abiertas</h2>
+
+  <form id="formulario">
+    <!-- Pregunta 1: Explicación de Fenómenos (EF) -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Explicación de Fenómenos (EF)</p>
+      <p><strong>Contexto:</strong> Un objeto se sumerge completamente en agua (\(\rho = 1000 \, \text{kg/m}^3\)).</p>
+      <p>1. Explica, usando el principio de Arquímedes, por qué un objeto experimenta una fuerza hacia arriba cuando está sumergido en un fluido.</p>
+      <textarea id="p1" name="p1" required></textarea>
+    </div>
+
+    <!-- Pregunta 2: Aplicación de Conceptos (AC) -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Aplicación de Conceptos (AC)</p>
+      <p><strong>Contexto:</strong> Un globo aerostático flota en el aire (\(\rho_{\text{aire}} = 1.2 \, \text{kg/m}^3\)).</p>
+      <p>2. Describe cómo el principio de Arquímedes permite que un globo aerostático flote en el aire. Incluye en tu respuesta el papel de la densidad del gas dentro del globo.</p>
+      <img src="globo_aerostatico.png" alt="Diagrama globo aerostático" class="figure">
+      <textarea id="p2" name="p2" required></textarea>
+    </div>
+
+    <!-- Pregunta 3: Resolución de Problemas (RP) -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Resolución de Problemas (RP)</p>
+      <p><strong>Contexto:</strong> Un cubo de 0.001 m³ se sumerge completamente en agua (\(\rho = 1000 \, \text{kg/m}^3\), \(g = 9.8 \, \text{m/s}^2\)).</p>
+      <p>3. Calcula la fuerza de flotación sobre el cubo y explica el procedimiento paso a paso.</p>
+      <img src="cubo_agua.png" alt="Diagrama cubo en agua" class="figure">
+      <textarea id="p3" name="p3" required></textarea>
+    </div>
+
+    <!-- Pregunta 4: Aplicación de Conceptos (AC) -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Aplicación de Conceptos (AC)</p>
+      <p><strong>Contexto:</strong> Un barco flota en el mar (\(\rho_{\text{agua}} = 1025 \, \text{kg/m}^3\)).</p>
+      <p>4. Si un barco desplaza 500 m³ de agua, explica cómo calcularías el peso máximo que puede soportar sin hundirse, y realiza el cálculo.</p>
+      <textarea id="p4" name="p4" required></textarea>
+    </div>
+
+    <!-- Pregunta 5: Resolución de Problemas (RP) -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Resolución de Problemas (RP)</p>
+      <p><strong>Contexto:</strong> Un bloque de madera (\(\rho = 600 \, \text{kg/m}^3\)) flota en agua (\(\rho = 1000 \, \text{kg/m}^3\)) con el 60% de su volumen sumergido.</p>
+      <p>5. Determina qué fracción del volumen del bloque estaría sumergida en un líquido de densidad 800 kg/m³. Explica tu razonamiento.</p>
+      <img src="bloque_flotando.png" alt="Diagrama bloque flotando" class="figure">
+      <textarea id="p5" name="p5" required></textarea>
+    </div>
+
+    <!-- Pregunta 6: Aplicación de Conceptos (AC) -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Aplicación de Conceptos (AC)</p>
+      <p><strong>Contexto:</strong> Una esfera de densidad 1200 kg/m³ se sumerge en aceite (\(\rho = 900 \, \text{kg/m}^3\)).</p>
+      <p>6. Explica qué sucede con la esfera (si flota, se hunde o permanece en equilibrio) y justifica tu respuesta usando el principio de Arquímedes.</p>
+      <textarea id="p6" name="p6" required></textarea>
+    </div>
+
+    <!-- Pregunta 7: Explicación de Fenómenos (EF) -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Explicación de Fenómenos (EF)</p>
+      <p><strong>Contexto:</strong> Un submarino ajusta su densidad para mantenerse sumergido sin moverse verticalmente en agua de mar.</p>
+      <p>7. Describe la condición que debe cumplir un submarino para mantenerse en equilibrio neutro en el agua. Explica cómo se relaciona con el principio de Arquímedes.</p>
+      <img src="submarino_equilibrio.png" alt="Diagrama submarino" class="figure">
+      <textarea id="p7" name="p7" required></textarea>
+    </div>
+
+    <!-- Pregunta 8: Resolución de Problemas (RP) -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Resolución de Problemas (RP)</p>
+      <p><strong>Contexto:</strong> Un objeto de 2 kg se sumerge en agua (\(\rho = 1000 \, \text{kg/m}^3\), \(g = 9.8 \, \text{m/s}^2\)) y experimenta una fuerza de flotación de 4.9 N.</p>
+      <p>8. Calcula el volumen del objeto y explica el procedimiento utilizado.</p>
+      <textarea id="p8" name="p8" required></textarea>
+    </div>
+
+    <!-- Pregunta 9: Aplicación de Conceptos (AC) -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Aplicación de Conceptos (AC)</p>
+      <p><strong>Contexto:</strong> Un bloque de hielo (\(\rho = 917 \, \text{kg/m}^3\)) flota en agua (\(\rho = 1000 \, \text{kg/m}^3\)).</p>
+      <p>9. Explica cómo determinarías el porcentaje del volumen del hielo que está sumergido y realiza el cálculo.</p>
+      <img src="hielo_flotando.png" alt="Diagrama hielo flotando" class="figure">
+      <textarea id="p9" name="p9" required></textarea>
+    </div>
+
+    <!-- Pregunta 10: Resolución de Problemas (RP) -->
+    <div class="pregunta">
+      <p><strong>Competencia:</strong> Resolución de Problemas (RP)</p>
+      <p><strong>Contexto:</strong> Un barco flota en agua dulce (\(\rho = 1000 \, \text{kg/m}^3\)) y luego navega a agua salada (\(\rho = 1025 \, \text{kg/m}^3\)).</p>
+      <p>10. Analiza qué sucede con la fracción de volumen sumergido del barco al pasar de agua dulce a agua salada. Justifica tu respuesta.</p>
+      <textarea id="p10" name="p10" required></textarea>
+    </div>
+
+    <button type="button" onclick="enviarRespuestas()">Enviar respuestas</button>
+  </form>
+
+  <div id="resultado"></div>
+
+  <script>
+    function enviarRespuestas() {
+      const nombre = document.getElementById("nombre").value.trim();
+      const grado = document.getElementById("grado").value.trim();
+
+      if (!nombre || !grado) {
+        alert("Por favor completa tu nombre y grado antes de enviar.");
+        return;
+      }
+
+      let datos = {
+        nombre: nombre,
+        grado: grado,
+        evaluacion: 'Principio de Arquímedes y Flotación',
+        timestamp: new Date().toISOString()
+      };
+
+      // Recolectar respuestas
+      for (let i = 1; i <= 10; i++) {
+        const respuesta = document.getElementById(`p${i}`).value.trim();
+        if (!respuesta) {
+          alert(`Por favor completa la pregunta ${i} antes de enviar.`);
+          return;
+        }
+        datos[`p${i}`] = respuesta;
+      }
+
+      document.getElementById("resultado").innerHTML = "Respuestas enviadas. ¡Gracias por participar!";
+
+      fetch('https://script.google.com/macros/s/AKfycbz2Rg1zIsGVOQ8krloYGg8AF9RJMZSyUd8Xec94gqdhvLURba-fLL20HcfIrKBMDi0/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        cache: 'no-cache',
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify(datos)
+      })
+      .then(() => {
+        console.log("Datos enviados.");
+        alert("Respuestas enviadas correctamente.");
+      })
+      .catch(error => {
+        console.error('Error al enviar datos:', error);
+        alert('Hubo un error al enviar tus respuestas. Por favor, inténtalo de nuevo o contacta al profesor.');
+      });
+    }
+  </script>
+</body>
+</html>
