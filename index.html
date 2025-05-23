@@ -140,51 +140,41 @@
   <div id="resultado"></div>
 
   <script>
-    function enviarRespuestas() {
-      const nombre = document.getElementById("nombre").value.trim();
-      const grado = document.getElementById("grado").value.trim();
+document.getElementById('formulario').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-      if (!nombre || !grado) {
-        alert("Por favor completa tu nombre y grado antes de enviar.");
-        return;
-      }
+    // Recopilar datos del formulario
+    const data = {
+        timestamp: new Date().toLocaleString('sv-SE'), // Formato ISO
+        nombre: document.getElementById('nombre').value,
+        grado: document.getElementById('grado').value,
+        evaluacion: "Cuestionario-Hidrostatica", // O puedes pedirlo como campo oculto si lo necesitas variable
+        p1: document.getElementById('p1').value,
+        p2: document.getElementById('p2').value,
+        p3: document.getElementById('p3').value,
+        p4: document.getElementById('p4').value,
+        p5: document.getElementById('p5').value,
+        p6: document.getElementById('p6').value,
+        p7: document.getElementById('p7').value,
+        p8: document.getElementById('p8').value,
+        p9: document.getElementById('p9').value,
+        p10: document.getElementById('p10').value
+    };
 
-      let datos = {
-        nombre: nombre,
-        grado: grado,
-        evaluacion: 'Principio de Arquímedes y Flotación',
-        timestamp: new Date().toISOString()
-      };
-
-      // Recolectar respuestas
-      for (let i = 1; i <= 10; i++) {
-        const respuesta = document.getElementById(`p${i}`).value.trim();
-        if (!respuesta) {
-          alert(`Por favor completa la pregunta ${i} antes de enviar.`);
-          return;
-        }
-        datos[`p${i}`] = respuesta;
-      }
-
-      document.getElementById("resultado").innerHTML = "Respuestas enviadas. ¡Gracias por participar!";
-
-      fetch('https://script.google.com/macros/s/AKfycbz2Rg1zIsGVOQ8krloYGg8AF9RJMZSyUd8Xec94gqdhvLURba-fLL20HcfIrKBMDi0/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbz2Rg1zIsGVOQ8krloYGg8AF9RJMZSyUd8Xec94gqdhvLURba-fLL20HcfIrKBMDi0/exec', {
         method: 'POST',
-        mode: 'no-cors',
-        cache: 'no-cache',
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        body: JSON.stringify(datos)
-      })
-      .then(() => {
-        console.log("Datos enviados.");
-        alert("Respuestas enviadas correctamente.");
-      })
-      .catch(error => {
-        console.error('Error al enviar datos:', error);
-        alert('Hubo un error al enviar tus respuestas. Por favor, inténtalo de nuevo o contacta al profesor.');
-      });
-    }
-  </script>
+        mode: 'no-cors', // Evita problemas de CORS, aunque no da respuesta legible
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    // Mensaje de éxito inmediato (opcional: puedes mejorar la UX con loaders)
+    document.getElementById('formulario').reset();
+    document.getElementById('resultado').textContent = "¡Tus respuestas fueron enviadas correctamente!";
+});
+</script>
+
 </body>
 </html>
